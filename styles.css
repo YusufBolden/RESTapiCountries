@@ -1,6 +1,6 @@
-/* ================================
-   BASE STYLES
-=================================== */
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap');
+
+/* Base styles */
 * {
   margin: 0;
   padding: 0;
@@ -8,10 +8,18 @@
 }
 
 body {
-  font-family: 'Nunito Sans', sans-serif;
+  font-family: "Nunito Sans", sans-serif;
   background-color: hsl(0, 0%, 98%);
   color: hsl(200, 15%, 8%);
   transition: background-color 0.3s, color 0.3s;
+}
+
+h1 {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--text-color);
+  line-height: 1.4;
 }
 
 img {
@@ -19,7 +27,9 @@ img {
   display: block;
 }
 
-button, select, input {
+button,
+select,
+input {
   font-family: inherit;
   font-size: 1rem;
   border: none;
@@ -51,9 +61,7 @@ header {
   background-color: transparent;
 }
 
-/* ================================
-   INDEX PAGE
-=================================== */
+/* Index.html styles */
 .controls {
   display: flex;
   flex-direction: column;
@@ -72,7 +80,7 @@ header {
   padding: 1rem 1rem 1rem 3rem;
   border-radius: 5px;
   background-color: white;
-  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
 .search-icon {
@@ -81,7 +89,8 @@ header {
   left: 1rem;
   width: 1rem;
   height: 1rem;
-  background-image: url('data:image/svg+xml;utf8,<svg fill="black" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M505 442.7L405.3 343c28.4-34.9 45.7-79 45.7-127C451 96.5 355.5 1 232.5 1S14 96.5 14 216.5 109.5 432 232.5 432c48 0 92.1-17.3 127-45.7L442.7 505c4.5 4.5 10.6 7 17 7s12.5-2.5 17-7c9.4-9.4 9.4-24.6 0-34zM232.5 384c-92.6 0-168-75.4-168-168s75.4-168 168-168 168 75.4 168 168-75.4 168-168 168z"/></svg>');
+  /* URL for magnifying glass */
+background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23000" viewBox="0 0 24 24"><path d="M10 2a8 8 0 105.29 14.29l5.38 5.38 1.41-1.41-5.38-5.38A8 8 0 0010 2zm0 2a6 6 0 110 12 6 6 0 010-12z"/></svg>');
   background-repeat: no-repeat;
   background-size: contain;
   transform: translateY(-50%);
@@ -97,7 +106,7 @@ select {
   padding: 1rem;
   border-radius: 5px;
   background-color: white;
-  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
 .countries-grid {
@@ -107,11 +116,19 @@ select {
   justify-content: center;
 }
 
+#countriesContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(264px, 1fr));
+  gap: 3rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
 .country-card {
   background-color: white;
   border-radius: 5px;
   overflow: hidden;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   cursor: pointer;
   transition: transform 0.2s ease;
 }
@@ -136,15 +153,13 @@ select {
   margin: 0 1rem 0.5rem 1rem;
 }
 
-/* ================================
-   DETAILS PAGE
-=================================== */
+/* Details.html styles */
 .back-button {
   display: inline-block;
   margin: 2rem;
   padding: 0.5rem 2rem;
   background-color: white;
-  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   cursor: pointer;
 }
@@ -187,9 +202,7 @@ select {
   font-weight: 600;
 }
 
-/* ================================
-   DARK MODE
-=================================== */
+/* Dark mode styles */
 body.dark-mode {
   background-color: hsl(207, 26%, 17%);
   color: hsl(0, 0%, 100%);
@@ -215,9 +228,7 @@ body.dark-mode .search-icon {
   background-image: url('data:image/svg+xml;utf8,<svg fill="white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M505 442.7L405.3 343c28.4-34.9 45.7-79 45.7-127C451 96.5 355.5 1 232.5 1S14 96.5 14 216.5 109.5 432 232.5 432c48 0 92.1-17.3 127-45.7L442.7 505c4.5 4.5 10.6 7 17 7s12.5-2.5 17-7c9.4-9.4 9.4-24.6 0-34zM232.5 384c-92.6 0-168-75.4-168-168s75.4-168 168-168 168 75.4 168 168-75.4 168-168 168z"/></svg>');
 }
 
-/* ================================
-   MEDIA QUERIES
-=================================== */
+/* Media queries */
 @media (min-width: 768px) {
   .controls {
     flex-direction: row;
