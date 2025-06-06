@@ -102,9 +102,9 @@ select {
 
 .countries-grid {
   display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(264px, 1fr));
   gap: 3rem;
-  padding: 2rem;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  justify-content: center;
 }
 
 .country-card {
