@@ -52,6 +52,14 @@ document.addEventListener("DOMContentLoaded", function () {
     flag.alt = "";
     flag.className = "details-flag";
 
+    const map = document.createElement("div");
+    map.id = "map";
+
+    const mapWrapper = document.createElement("div");
+    mapWrapper.className = "details-content";
+    mapWrapper.appendChild(flag);
+    mapWrapper.appendChild(map);
+
     const name = document.createElement("h2");
     name.textContent = country.name.common;
 
@@ -125,10 +133,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const detailsGrid = document.createElement("div");
     detailsGrid.className = "details-grid";
-    detailsGrid.appendChild(flag);
+    detailsGrid.appendChild(mapWrapper);
     detailsGrid.appendChild(detailsInfo);
 
     detailsContainer.appendChild(detailsGrid);
+
+    if (country.latlng) {
+      const lat = country.latlng[0];
+      const lng = country.latlng[1];
+      const leafletMap = L.map("map").setView([lat, lng], 5);
+      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        attribution: "&copy; OpenStreetMap contributors"
+      }).addTo(leafletMap);
+      L.marker([lat, lng]).addTo(leafletMap);
+    }
   }
 
   fetchCountryDetails();
