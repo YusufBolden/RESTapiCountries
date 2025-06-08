@@ -1,5 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap");
 
+/* Base styles */
 * {
   margin: 0;
   padding: 0;
@@ -58,6 +59,7 @@ header {
   background-color: transparent;
 }
 
+/* index.html styles */
 .controls {
   display: flex;
   flex-direction: column;
@@ -150,6 +152,7 @@ select {
   cursor: pointer;
 }
 
+/* details.html styles */
 .country-details {
   padding: 2rem;
 }
@@ -200,6 +203,7 @@ select {
   gap: 2rem;
 }
 
+/* Responsive styles */
 @media (min-width: 768px) {
   .details-grid {
     flex-direction: row;
@@ -232,6 +236,7 @@ select {
   }
 }
 
+/* Theme toggle styles */
 body.dark-mode {
   background-color: hsl(207, 26%, 17%);
   color: hsl(0, 0%, 100%);
