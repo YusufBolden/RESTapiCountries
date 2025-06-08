@@ -16,8 +16,8 @@ This project is part of a cumulative assessment of front-end development skills 
 - Filter countries by region
 - Sort countries alphabetically (A–Z / Z–A)
 - View detailed information on a selected country
-- Border countries are listed and named
-- Clean, accessible, beginner-friendly code with no template literals or string concatenation
+- Border countries are listed
+- Interactive Leaflet map of the selected country
 
 ## 🛠️ Technologies Used
 
@@ -25,6 +25,7 @@ This project is part of a cumulative assessment of front-end development skills 
 - CSS3 (with custom styles)
 - JavaScript (ES6+)
 - REST Countries API (`https://restcountries.com/v3.1`)
+- Leaflet.js for map rendering
 - Git + GitHub for version control and documentation
 
 ## 📁 Project Setup
@@ -44,9 +45,11 @@ This project is part of a cumulative assessment of front-end development skills 
 .
 ├── index.html
 ├── details.html
+├── links.html
 ├── styles.css
 ├── scripts.js
 ├── details.js
+├── links.js
 └── README.md
 ```
 
@@ -73,8 +76,6 @@ Object { message: "'fields' query not specified", status: 400 }
 **Resolution:**  
 I corrected the fetch URL by explicitly specifying all required fields in the API call. This ensured a predictable and minimal payload with only the necessary data.
 
----
-
 ### 2. **Incorrect Data Handling**
 
 At one point, the app failed with:
@@ -86,16 +87,12 @@ TypeError: countries.forEach is not a function
 **Resolution:**  
 I discovered that the `fetch` call was returning an object instead of an array due to incorrect handling of the response. I added validation to confirm the response was an array before passing it to `renderCountries`.
 
----
-
 ### 3. **Unused Search, Filter, and Sort Inputs**
 
 Despite adding the UI for search, region filter, and sorting, they were not functional because the corresponding input event listeners weren’t implemented.
 
 **Resolution:**  
 I added listeners for all controls and ensured the search, filter, and sort values were used to dynamically filter the data before rendering. This was done in a clean and beginner-friendly way using `Array.prototype.filter`, `sort`, and basic string matching logic.
-
----
 
 ### 4. **Card Navigation and `details.html` Routing**
 
@@ -104,8 +101,6 @@ Clicking on a country card did not initially route to the `details.html` view pr
 **Resolution:**  
 I updated the click logic to store the selected country in `localStorage`, allowing the `details.html` script to fetch and render it. This made the navigation smooth and avoided needing query strings or server routing.
 
----
-
 ### 5. **Theme Toggle Not Persisting**
 
 Although dark/light mode worked on `index.html`, it did not persist to `details.html`.
@@ -113,38 +108,32 @@ Although dark/light mode worked on `index.html`, it did not persist to `details.
 **Resolution:**  
 I shared the theme state between pages by storing the user’s preference in `localStorage`, and applied it on DOM load in both `scripts.js` and `details.js`.
 
----
+### 6. **Interactive Map Integration**
 
-### 6. **Strict Code Style Requirements**
-
-The project enforced strict JavaScript rules:
-
-- No template literals
-- No string concatenation
-- No chained logic
-- Clean and simple syntax only
+To enrich the user experience, I added an interactive map on the country detail page using Leaflet.js. It dynamically centers the map based on the country's coordinates and places a marker at its location.
 
 **Resolution:**  
-I created all HTML elements using DOM methods (`createElement`, `setAttribute`, etc.), and avoided syntactic shortcuts like ternary operators. This resulted in very readable and beginner-friendly code.
+After fetching the selected country’s data, the map initializes with the correct latitude and longitude using Leaflet. This feature is responsive and visually enhances the country detail view.
 
 ---
 
-## 📷 Future Improvements
+## 📈 Additional Features
 
-- Add interactive map view using Leaflet.js and GeoJSON for the selected country and its region
-- Add accessibility improvements like ARIA roles and enhanced keyboard support
-- Cache API data in localStorage for offline/fast loading
-- Add transitions or animations for theme switcher and card hover
+- Clickable border countries: Clicking a border country loads a new page (`links.html`) showing the selected neighbor's basic details.
+- Leaflet-powered map: Dynamically displays each country's location and updates as different countries are selected.
+- Mobile-optimized layout and improved responsive behavior.
 
 ---
 
-## 📚 Research Required
+## 📚 Resources
 
-- REST Countries API v3.1 documentation
-- Light/dark theme switching techniques
-- `localStorage` usage
-- DOM methods (without templates)
-- Deployment using Github pages
+- [REST Countries API v3.1](https://restcountries.com)
+- [Frontend Mentor Challenge](https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher)
+- [Leaflet.js Documentation](https://leafletjs.com/)
+- [MDN Web Docs - JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+- [MDN Web Docs - HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
+- [MDN Web Docs - CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
+- [GitHub Pages Deployment Guide](https://docs.github.com/en/pages)
 
 ---
 
@@ -169,4 +158,3 @@ Feedback and suggestions are welcome!
 ## 📄 License
 
 This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
-
