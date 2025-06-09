@@ -100,11 +100,19 @@ document.addEventListener("DOMContentLoaded", function () {
     bordersEl.className = "border-countries";
     let bordersContent = "<strong>Border Countries:</strong> ";
     if (country.borders && country.borders.length > 0) {
-      bordersContent += country.borders.join(", ");
+      country.borders.forEach(function (code) {
+        const button = document.createElement("button");
+        button.className = "back-button";
+        button.textContent = code;
+        button.addEventListener("click", function () {
+          window.location.href = "links.html?code=" + code;
+        });
+        bordersEl.appendChild(button);
+      });
     } else {
       bordersContent += "None";
+      bordersEl.innerHTML = bordersContent;
     }
-    bordersEl.innerHTML = bordersContent;
 
     const col1 = document.createElement("div");
     col1.className = "details-col";
