@@ -118,10 +118,14 @@ After fetching the selected country’s data, the map initializes with the corre
 ---
 
 ## 📈 Additional Features
-
-- Clickable border countries: Clicking a border country loads a new page (`links.html`) showing the selected neighbor's basic details.
 - Leaflet-powered map: Dynamically displays each country's location and updates as different countries are selected.
 - Mobile-optimized layout and improved responsive behavior.
+
+---
+
+## 🧪 Future Features
+- Clickable border countries: Clicking a border country loads a new page (`links.html`) showing the selected neighbor's basic details.
+- Additional sort methods such as sorting by population or sorting by languages spoken.
 
 ---
 
